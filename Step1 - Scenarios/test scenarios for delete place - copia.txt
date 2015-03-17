@@ -1,0 +1,30 @@
+//*------------------------------*//
+Feature: delete place
+
+  allows delete a place in "Sonar" of a particular provider through an internal identifier of provider
+
+//*-----------------------------*//
+narrative:
+  to delete a place in sonar
+  as a provider of it
+  I want delete the place
+
+//*------------------------------*//
+Antecedents 
+  given a provider called "foursquare" with an own identifier: "4b7755f5f964a5200f932FFF" unregistered in Sonar
+  and a provider called "facebook" with an own identifier: "100473940700" registered in Sonar
+
+//*------------------------------*//
+Scenario: Foursquare requests delete a inexistent place
+	Given I am a provider called "foursquare" 
+	And I have a identifier "4b7755f5f964a5200f932FFF"
+  	And I not have an place for the indentifier
+	When I call delete Place
+	Then I see "place not deleted"
+
+Scenario: Facebook requests delete a existent place
+	Given I am a provider called "facebook" 
+  	And I have a identifier "100473940700"
+  	And I have an place for the indentifier
+  	When I call delete Place
+  	Then I see "the place been deleted"
