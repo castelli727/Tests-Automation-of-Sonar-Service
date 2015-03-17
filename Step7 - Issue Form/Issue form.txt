@@ -1,0 +1,36 @@
+Create an Issue for the REST API
+*Obligatorio
+Reporter *
+Enter your name: --Jesus Castelli
+ 
+Source Type * --Issue
+Identify if the incident is an issue, a change, an enhancement. 
+ 
+Priority * --Minor
+Select the priority of the incident
+ 
+Summary * 
+Brief description of the incident
+
+	--an existing place has not been obtained
+
+Description *
+Enter full description about how to reproduce the incident
+
+	--when you call the function "getPlaceBySonarPlaceId" for a place that exists in "Sonar", the place is not obtained
+ 
+Method *
+Select the method where the issue is present
+
+ 	--GET (Sonar)
+
+Attachments
+Enter the shared URL where screenshots or videos were stored.
+ 
+Testing endpoint URL *
+Indicate which URL contains the incident
+	
+	--http://uk9c0jvb9f6nvxvhursp.olapic.com/v1/places/sonar/SONAR_PLACE_ID where "SONAR_PLACE_ID" is a valid parameter
+ 
+
+Nunca envíes contraseñas a través de Formularios de Google.
