@@ -1,0 +1,90 @@
+Feature: addNewPlace
+
+  to add a new place in sonar
+  as a provider of it
+  I want to obtain a new place
+
+  Scenario: Twitter requests a new place, Twitter no is a provider # features\addNewPlace.feature:10
+    Given I am a provider called "twitter"                         # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "600473460700"                         # FeatureContext::iHaveAIdentifier()
+    When I call add New Place                                      # FeatureContext::iCallAddNewPlace()
+    Then I see "Place not obtained"		                   # FeatureContext::iSee()
+	Place not obtained
+
+  Scenario: Facebook requests a new place                          # features\addNewPlace.feature:16
+    Given I am a provider called "facebook"                        # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "100473940700"                         # FeatureContext::iHaveAIdentifier()
+    When I call add New Place                                      # FeatureContext::iCallAddNewPlace()
+    Then I see "Place obtained"			   		   # FeatureContext::iSee()
+	Place obtained
+
+  Scenario: Facebook requests a new place with an identifier already registeredin sonar # features\addNewPlace.feature:22
+    Given I am a provider called "facebook"					        # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "100473940700"					        # FeatureContext::iHaveAIdentifier()
+    And I have an place for the indentifier					        # FeatureContext::iHaveAnPlaceForTheIndentifier()
+    When I call add New Place							        # FeatureContext::iCallAddNewPlace()
+    Then I see "Place obtained"			                                        # FeatureContext::iSee()
+	Place obtained
+
+
+Feature: deletePlace
+
+  to delete a place in sonar
+  as a provider of it
+  I want delete the place
+
+  Scenario: Foursquare requests delete a inexistent place		# features\deletePlace.feature:11
+    Given I am a provider called "foursquare"			        # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "4b7755f5f964a5200f932FFF"			# FeatureContext::iHaveAIdentifier()
+    And I not have an place for the indentifier				# FeatureContext::iNotHaveAnPlaceForTheIndentifier()
+    When I call delete Place						# FeatureContext::iCallDeletePlace()
+    Then I see "Place not deleted"                          		# FeatureContext::iSee()
+	Place not deleted
+
+  Scenario: Facebook requests delete a existent place			# features\deletePlace.feature:18
+    Given I am a provider called "facebook"			        # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "100473940700"			        # FeatureContext::iHaveAIdentifier()
+    And I have an place for the indentifier			        # FeatureContext::iHaveAnPlaceForTheIndentifier()
+    When I call delete Place					        # FeatureContext::iCallDeletePlace()
+    Then I see "Place deleted"		                		# FeatureContext::iSee()
+	Place deleted
+
+Feature: getPlace
+
+  to obtain the information of a place in sonar
+  as a provider of it
+  I want obtain the data of place
+
+  Scenario: Foursquare requests the data of a place existent by provider place id        # features\getPlace.feature:10
+    Given I am a provider called "foursquare"					         # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "4b7755f5f964a5200f932ee3"				         # FeatureContext::iHaveAIdentifier()
+    And I have an place for the indentifier					         # FeatureContext::iHaveAnPlaceForTheIndentifier()
+    When I call get Place							         # FeatureContext::iCallGetPlace()
+    Then I see "Place obtained"			                       			 # FeatureContext::iSee()
+	Place obtained
+
+  Scenario: Facebook requests the data of a place inexistent by provider place id        # features\getPlace.feature:17
+    Given I am a provider called "facebook"					         # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "100473940700"					         # FeatureContext::iHaveAIdentifier()
+    And I not have an place for the indentifier					         # FeatureContext::iNotHaveAnPlaceForTheIndentifier()
+    When I call get Place							         # FeatureContext::iCallGetPlace()
+    Then I see "Place not obtained"		                         		 # FeatureContext::iSee()
+	Place not obtained
+
+Feature: getPlaceBySonarId
+
+  to obtain the information of a place in sonar
+  as a client of it
+  I want obtain data of place
+
+  Scenario: Facebook requests the data of a existent place by sonar place id		# features\getPlaceById.feature:10
+    Given I am a provider called "facebook"					        # FeatureContext::iAmAProviderCalled()
+    And I have a identifier "100473940700"					        # FeatureContext::iHaveAIdentifier()
+    And I have a place indentifier in sonar for this other			        # FeatureContext::iHaveAPlaceIndentifierInSonarForThisOther()
+    When I call get Place By Sonar PlaceId					        # FeatureContext::iCallGetPlaceBySonarPlaceid()
+    Then I see "Place obtenid"							        # FeatureContext::iSee()
+      Place not obtained
+
+8 scenarios (7 passed, 1 failed)
+38 steps (37 passed, 1 failed)
+0m6.255s
