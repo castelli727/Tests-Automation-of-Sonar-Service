@@ -1,0 +1,4 @@
+1- Have installed PHP
+2- Enable extension php_curl.dll
+3- Have installed Behat
+4- Have installed git

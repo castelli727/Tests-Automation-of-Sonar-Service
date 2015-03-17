@@ -1,0 +1,13 @@
+1 - Open the console to work with git
+2 - placed through console in the repository where you want to download the project
+3 - establish this directory as git
+ 	Do from console: git init
+
+4- Download the project repository on github using the following url https://github.com/castelli727/Tests-Automation-of-Sonar-Service.git
+	Do from console: git clone https://github.com/castelli727/Tests-Automation-of-Sonar-Service.git
+ 
+5 - Once downloaded the files and folders Situate in the "final" repository through console
+6 - Do from console: Behat --init
+7 - Copy files ".feature" within the directory "features"
+8 - Copy files ".php" in the directory "features/Bootstrap" 
+9 - placed again in the final folder and from console do: Behat
